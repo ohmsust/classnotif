@@ -26,9 +26,9 @@ app.get('/todos', function(req, res) {
 		where.completed = false;
 	}
 
-	if(query.hasOwnProperty('q') && query.length > 0) {
+	if(query.hasOwnProperty('q') && query.q.length > 0) {
 		where.description = {
-			$like: '%dog'
+			$like: '%' + query.q + '%'
 		};
 
 		console.log(query.q);
