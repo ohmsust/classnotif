@@ -2,17 +2,8 @@ var express = require('express');
 var app = express();
 var PORT = 3000;
 
-var middleware = {
-	requireAuthentication: function (req, res, next) {
-		console.log('Privater Route Hit!');
-		next();
-	},
-	logger: function (req, res, next) {
+var middleware = require('./middleware.js');
 
-		console.log('Request:' + new Date().toString()+' ' + req.method+' '+ req.originalUrl);
-		next();
-	}
-};
 
 // Must Call before any route hit
 // app.use(middleware.requireAuthentication);
